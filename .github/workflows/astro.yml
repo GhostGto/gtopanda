@@ -25,7 +25,6 @@ concurrency:
 
 env:
   BUILD_PATH: "." # default value when not using subfolders
-  CI: false
   # BUILD_PATH: subfolder
 
 jobs:
