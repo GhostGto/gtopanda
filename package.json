@@ -4,27 +4,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/GhostGto/gtopanda"
+    "url": "https://github.com/GhostGto/gtopanda" 
   },
   "scripts": {
-    "release": "pnpm run build && changeset publish",
-    "build": "turbo run build --output-logs=new-only --no-deps --filter=astro --filter=create-astro --filter=\"@astrojs/*\"",
-    "build:ci": "turbo run build:ci --output-logs=new-only --no-deps --filter=astro --filter=create-astro --filter=\"@astrojs/*\"",
-    "build:examples": "turbo run build --filter=\"@example/*\"",
-    "dev": "turbo run dev --no-deps --no-cache --parallel --filter=astro --filter=create-astro --filter=\"@astrojs/*\"",
-    "format": "pnpm run format:code",
-    "format:ci": "pnpm run format:imports && pnpm run format:code",
-    "format:code": "prettier -w . --cache --plugin-search-dir=.",
-    "format:imports": "organize-imports-cli ./packages/*/tsconfig.json ./packages/*/*/tsconfig.json",
-    "test": "turbo run test --output-logs=new-only --concurrency=1 --filter=astro --filter=create-astro --filter=\"@astrojs/*\"",
-    "test:match": "cd packages/astro && pnpm run test:match",
-    "test:smoke": "turbo run build --filter=\"@example/*\" --filter=\"docs\" --output-logs=new-only --concurrency=1",
-    "test:check-examples": "node ./scripts/smoke/check.js",
-    "test:vite-ci": "turbo run test --filter=astro --output-logs=new-only --no-deps --concurrency=1",
-    "test:e2e": "cd packages/astro && pnpm playwright install && pnpm run test:e2e",
-    "test:e2e:match": "cd packages/astro && pnpm playwright install && pnpm run test:e2e:match",
-    "benchmark": "pnpm --filter @benchmark/simple run build && pnpm dlx concurrently -k -s first --raw \"node packages/astro/test/benchmark/simple/server.mjs\" \"pnpm dlx autocannon -c 100 -d 30 -p 10 localhost:3002/\"",
-    "lint": "eslint --cache .",
-    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format"  
-  } 
+    "build": "babel src -d lib",
+    "test": "jest"
+  }
 }
