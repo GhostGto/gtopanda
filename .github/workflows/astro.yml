@@ -19,12 +19,12 @@ permissions:
   id-token: write
 
 # Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+#concurrency:
+ # group: "pages"
+  #cancel-in-progress: true
 
-env:
-  BUILD_PATH: "." # default value when not using subfolders
+#env:
+#  BUILD_PATH: "." # default value when not using subfolders
   # BUILD_PATH: subfolder
 
 jobs:
